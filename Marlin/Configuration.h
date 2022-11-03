@@ -89,7 +89,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_BTT_SKR_V1_4
+  #define MOTHERBOARD BOARD_BTT_SKR_V1_4_TURBO
 #endif
 
 /**
@@ -113,7 +113,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 250000
+#define BAUDRATE 115200
 
 //#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
@@ -161,9 +161,9 @@
 #define X_DRIVER_TYPE  TMC2209
 #define Y_DRIVER_TYPE  TMC2209
 #define Z_DRIVER_TYPE  TMC2209
-#define Z2_DRIVER_TYPE TMC2209
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
+#define Z2_DRIVER_TYPE TMC2209
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
 //#define I_DRIVER_TYPE  A4988
@@ -1118,7 +1118,7 @@
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
 // This will remove the need to poll the interrupt pins, saving many CPU cycles.
-// #define ENDSTOP_INTERRUPTS_FEATURE
+//#define ENDSTOP_INTERRUPTS_FEATURE
 
 /**
  * Endstop Noise Threshold
@@ -1268,7 +1268,7 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+// #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
 #define USE_PROBE_FOR_Z_HOMING
@@ -1477,7 +1477,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -42, -5, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 36, -50, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1693,7 +1693,7 @@
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
-#define Y_MIN_POS 0
+#define Y_MIN_POS -45
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
@@ -2435,7 +2435,7 @@
  *
  * :['JAPANESE', 'WESTERN', 'CYRILLIC']
  */
-#define DISPLAY_CHARSET_HD44780 JAPANESE
+#define DISPLAY_CHARSET_HD44780 WESTERN
 
 /**
  * Info Screen Style (0:Classic, 1:Průša)
@@ -2726,13 +2726,13 @@
 //
 // K.3D Full Graphic Smart Controller
 //
-// #define K3D_FULL_GRAPHIC_SMART_CONTROLLER
+//#define K3D_FULL_GRAPHIC_SMART_CONTROLLER
 
 //
 // ReprapWorld Graphical LCD
 // https://reprapworld.com/?products_details&products_id/1218
 //
-// #define REPRAPWORLD_GRAPHICAL_LCD
+//#define REPRAPWORLD_GRAPHICAL_LCD
 
 //
 // Activate one of these if you have a Panucatt Devices
@@ -2829,9 +2829,7 @@
 // (For CR-10 owners who want to replace the Melzi Creality board but retain the display)
 //
 #define CR10_STOCKDISPLAY
-#if ENABLED(CR10_STOCKDISPLAY)
-  #define VET6_12864_LCD  // Specific to the SoC (can either be RET / VET)
-#endif
+
 //
 // Ender-2 OEM display, a variant of the MKS_MINI_12864
 //
@@ -3201,7 +3199,7 @@
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
 // is too low, you should also increment SOFT_PWM_SCALE.
-#define FAN_SOFT_PWM
+//#define FAN_SOFT_PWM
 
 // Incrementing this by 1 will double the software PWM frequency,
 // affecting heaters, and the fan if FAN_SOFT_PWM is enabled.
